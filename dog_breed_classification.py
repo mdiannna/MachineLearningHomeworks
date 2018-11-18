@@ -2,7 +2,9 @@ import numpy as np
 from io import StringIO   # StringIO behaves like a file object
 from sklearn.impute import SimpleImputer
 from sklearn import linear_model
-
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import cross_val_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
 ######################################
 ###  CONSTANTS 
@@ -109,16 +111,16 @@ def handleMissing(data):
 	return result
 
 
-def predictBreed(data):
+def predictBreed(data, labels):
 	# print(data[:3])
 	# # data, nr coloanei(de ex. coloana 0), axis=1=>coloana
 	# data1 = np.delete(data[:3],  0, 1)
 	# print(data1)
 
-	print(data[:3])
-	print("---------")
+	# print(data[:3])
+	# print("---------")
 	# Delete longevity column
-	data_some_cols = np.delete(data[:3],  2, 1)
+	data_some_cols = np.delete(data,  2, 1)
 	print(data_some_cols)
 
 	# TODO: impart in training, validation, test
@@ -127,9 +129,42 @@ def predictBreed(data):
 	#       Random Forests
 	#       KNN
 	#  find best hyper-parameters
-	reg = LinearRegression().fit(data_some_cols, labels)
-	
-	pass
+	X = data_some_cols[0:100]
+	y = labels[0:100]
+
+	reg = LinearRegression().fit(X, y)
+	reg.score(X, y)
+	reg.coef_
+	# reg.intercept
+
+	# TODO: impart in training, validation, test
+	X_test = data_some_cols[100:200]
+	y_test = labels[100:200]
+
+	y_pred = reg.predict(X_test).astype(int)
+	print(y_pred)
+	print(np.array(y_test))
+
+	# TODO: choose what scores to use and what not
+	# accuracy = accuracy_score(y_test, y_pred, normalize=False)
+	accuracy = accuracy_score(y_test, y_pred)
+	f1 = f1_score(y_test, y_pred, average="weighted")
+	# f1 = f1_score(y_test, y_pred, average="macro")
+	# f1 = f1_score(y_test, y_pred, average="micro")
+	# f1 = f1_score(y_test, y_pred, average=None)
+	precision = precision_score(y_test, y_pred, average="weighted")
+	recall = recall_score(y_test, y_pred, average="weighted")
+	print("-----accuracy score:-----")
+	print(accuracy)
+
+	print("-----f1 score:-----")
+	print(f1)
+
+	print("-----precision score:-----")
+	print(precision)
+
+	print("-----recall score:-----")
+	print(recall)
 
 def main():
 	data, labels = readData()
@@ -140,8 +175,8 @@ def main():
 	# check nan
 	# print(data[6])
 
-	# TODO:
-	# predictBreed(data);
+	# print(labels);
+	predictBreed(data, labels);
 
 
 
