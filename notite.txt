@@ -1,0 +1,30 @@
+TODO: tune hyperparameters + test on X_test, y_Test
+
+TODO: regresie + hyperparams
+
+
+TODO: engineer new features(one hot, encoding, polynomial)
+k neighbour classifier, kneighbour regressor,  pentru KNN
+
+ 
+TODO: tables with hyperparameters used
+
+Owner name - is not a feature, so remove completely + descriere
+
+TODO: clean code
+
+
+
+O metoda de gandire - observ ca doar height are valori nan, dar height depinde de weight?
+deci scot height si antrenez fara?
+
+
+
+
+
+
+
+------------------------------------
+Strategy - for training - drop nan
+for test - simple imputer, de testat cu mean si median
+

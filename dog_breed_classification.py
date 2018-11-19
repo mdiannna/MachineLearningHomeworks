@@ -2,9 +2,13 @@ import numpy as np
 from io import StringIO   # StringIO behaves like a file object
 from sklearn.impute import SimpleImputer
 from sklearn import linear_model
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from sklearn.model_selection import train_test_split
+import pandas as pd
 
 ######################################
 ###  CONSTANTS 
@@ -21,12 +25,9 @@ COLUMN_NAMES = ["Breed Name","Weight(g)","Height(cm)","Longevity(yrs)",
 SELECTED_FEATURES_BREED = ["Weight(g)","Height(cm)",
 	"Energy level", "Attention Needs", "Coat Lenght", "Sex",];
 
-# SEX = []
-# BREED_NAMES = []
+
 breed_tags = {}
 
-def initValues():
-	pass
 
 
 def toNumericalData(line):
@@ -111,6 +112,31 @@ def handleMissing(data):
 	return result
 
 
+def plot_decision_boundary(model, X, y):
+  """
+    Use this to plot the decision boundary of a trained model.
+  """
+  
+  xx, yy = np.mgrid[-5:5:.01, -5:5:.01]
+  grid = np.c_[xx.ravel(), yy.ravel()]
+  probs = model.predict_proba(grid)[:, 1].reshape(xx.shape)
+  f, ax = plt.subplots(figsize=(8, 6))
+  contour = ax.contourf(xx, yy, probs, 25, cmap="RdBu",
+                        vmin=0, vmax=1)
+  ax_c = f.colorbar(contour)
+  ax_c.set_label("$P(y = 1)$")
+  ax_c.set_ticks([0, .25, .5, .75, 1])
+
+  ax.scatter(X[:,0], X[:, 1], c=y, s=50,
+             cmap="RdBu", vmin=-.2, vmax=1.2,
+             edgecolor="white", linewidth=1)
+
+  ax.set(aspect="equal",
+         xlim=(-5, 5), ylim=(-5, 5),
+         xlabel="$X_1$", ylabel="$X_2$")
+
+
+
 def predictBreed(data, labels):
 	# print(data[:3])
 	# # data, nr coloanei(de ex. coloana 0), axis=1=>coloana
@@ -129,17 +155,20 @@ def predictBreed(data, labels):
 	#       Random Forests
 	#       KNN
 	#  find best hyper-parameters
-	X = data_some_cols[0:100]
-	y = labels[0:100]
+	# X = data_some_cols[0:100]
+	# y = labels[0:100]
 
-	reg = LinearRegression().fit(X, y)
-	reg.score(X, y)
+	X_train, X_test, y_train, y_test = train_test_split(data_some_cols, labels)
+
+	
+	reg = LinearRegression().fit(X_train, y_train)
+	reg.score(X_train, y_train)
 	reg.coef_
 	# reg.intercept
 
 	# TODO: impart in training, validation, test
-	X_test = data_some_cols[100:200]
-	y_test = labels[100:200]
+	# X_test = data_some_cols[100:200]
+	# y_test = labels[100:200]
 
 	y_pred = reg.predict(X_test).astype(int)
 	print(y_pred)
@@ -166,6 +195,29 @@ def predictBreed(data, labels):
 	print("-----recall score:-----")
 	print(recall)
 
+	print("------train more models-------")
+
+	for j, Model in enumerate([LinearRegression, Ridge, Lasso, LogisticRegression, RandomForestClassifier, KNeighborsClassifier]):
+	# for j, Model in enumerate([Ridge, Lasso, LogisticRegression, RandomForestClassifier, KNeighborsClassifier]):
+	    clf = Model();
+	    clf.fit(X_train, y_train)
+	    
+	       
+	    plot_decision_boundary(clf, X_train, y_train)
+
+	    # Calculate accuracy on the test set
+	    y_pred = clf.predict(X_test)
+	    score = accuracy_score(y_test, y_pred)
+	    print(score)
+
+
+# def KNN(data):
+# 	neigh = KNeighborsClassifier(n_neighbors=3)
+# 	neigh.fit(X, y) 
+# 	print(neigh.predict([[1.1]]))
+# 	print(neigh.predict_proba([[0.9]]))
+
+
 def main():
 	data, labels = readData()
 	# print(data)
@@ -182,3 +234,6 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
+
+# TODO: IDEA = separate 2 different predictions based on sex + weight + height etc.
