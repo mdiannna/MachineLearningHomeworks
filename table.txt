@@ -1,0 +1,18 @@
+Algorithm name    |  Best Score |  
+
+
+
+3 x tables for each data
+
+Logistic regression
+
+Solver |  accuracy | f1 | precision | recall |
+
+
+
+Random forest classifier:
+Nr estimators | Max depth | Max leaf nodes | f1 | precision | recall |
+
+
+KNN Classifier:
+Nr neightbors  | Leaf size | Algorithm | f1 | precision | recall
