@@ -16,3 +16,10 @@ Nr estimators | Max depth | Max leaf nodes | f1 | precision | recall |
 
 KNN Classifier:
 Nr neightbors  | Leaf size | Algorithm | f1 | precision | recall
+
+
+
+TODO: 
+1. regresie + rezulatate
+2. Descris ce am facut + ca nu converge in 2 cazuri, very bad
+3. Engineer new features
