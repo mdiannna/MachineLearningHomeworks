@@ -1,0 +1,7 @@
+https://www.kaggle.com/pceccon/countvectorizer-and-tfidf-strategies
+
+
+http://www.scikit-yb.org/en/latest/api/text/freqdist.html
+
+https://stackoverflow.com/questions/28160335/plot-a-document-tfidf-2d-graph
+https://realpython.com/python-histograms/
