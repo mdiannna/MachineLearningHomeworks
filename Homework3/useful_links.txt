@@ -1,0 +1,74 @@
+Link-uri utile:
+
+
+scikit-image for image segmentation:
+https://www.scipy-lectures.org/packages/scikit-image/index.html
+
+opencv image segmention(coins):
+https://docs.opencv.org/3.4.3/d3/db4/tutorial_py_watershed.html
+
+
+TODO: read:
+https://keras.io/getting-started/functional-api-guide/#multi-input-and-multi-output-models
+
+
+TODO: read:
+https://www.tensorflow.org/tutorials/estimators/cnn
+
+TODO: read:
+A noob’s guide to implementing RNN-LSTM using Tensorflow
+https://becominghuman.ai/a-noobs-guide-to-implementing-rnn-lstm-using-tensorflow-1907a5bbb1fa
+
+Search multi-target output keras
+https://www.pyimagesearch.com/2018/06/04/keras-multiple-outputs-and-multiple-losses/
+
+https://stackoverflow.com/questions/44036971/multiple-outputs-in-keras
+
+
+
+http://opensourc.es/blog/tensorflow-mnist
+
+#character segmentation, #digits segmentation
+- CNN-LSTM https://machinelearningmastery.com/cnn-long-short-term-memory-networks/
+
+-	http://www.emaraic.com/blog/multi-digit-segmentation-and-recognition
+
+-
+MNIST Sequences detection ;)
+http://petr-marek.com/blog/2017/07/05/sequence-digits-recognition/
+
+-
+Handwritten Digit Recognition using Convolutional Neural Networks in Python with Keras
+https://machinelearningmastery.com/handwritten-digit-recognition-using-convolutional-neural-networks-python-keras/
+
+- 
+Rediscovering Semantic Segmentation
+https://medium.com/100-shades-of-machine-learning/https-medium-com-100-shades-of-machine-learning-rediscovering-semantic-segmentation-part1-83e1462e0805
+(articol bun pe image segmentation cu MNIST)
+
+
+- image segmentation:
+http://www.timotheecour.com/learning_segmentation/learning_segmentation.html
+
+- LEARNING TO DECOMPOSE FOR OBJECT DETECTION
+AND INSTANCE SEGMENTATION
+https://arxiv.org/pdf/1511.06449.pdf
+
+- MDig: Multi-digit Recognition using Convolutional
+Nerual Network on Mobile
+https://web.stanford.edu/class/cs231m/projects/final-report-yang-pu.pdf
+https://github.com/jingpu/MDig
+
+- https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
+
+----
+Code on github:
+- https://github.com/VladislavPrh/MDR/blob/master/model.py
+- https://github.com/potterhsu/SVHNClassifier/blob/master/model.py
+- https://github.com/ws2505/Multi-Digit-Recognition
+
+
+
+
+
+https://www.blog.google/technology/ai/13-ways-youre-using-ai-your-daily-life/
