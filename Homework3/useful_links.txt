@@ -1,6 +1,30 @@
 Link-uri utile:
 
 
+RNN encoder-decoder pentru Task 2 (sum numbers):
+https://machinelearningmastery.com/learn-add-numbers-seq2seq-recurrent-neural-networks/
+
+sequence to sequence = acelasi lucru ca encoder-decoder
+
+pdf ce pare util:
+https://diegma.github.io/slides/ULL2016/RNN.pdf
+
+https://machinelearningmastery.com/encoder-decoder-long-short-term-memory-networks/
+
+
+https://machinelearningmastery.com/encoder-decoder-long-short-term-memory-networks/
+
+
+http://projects.rajivshah.com/blog/2016/04/05/rnn_addition/
+
+Explicatii interesante RNN:
+http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/
+
+
+
+separare cifre: (exemplu folosit in tema)
+https://www.scipy-lectures.org/packages/scikit-image/auto_examples/plot_labels.html#sphx-glr-packages-scikit-image-auto-examples-plot-labels-py
+
 scikit-image for image segmentation:
 https://www.scipy-lectures.org/packages/scikit-image/index.html
 
@@ -72,3 +96,11 @@ Code on github:
 
 
 https://www.blog.google/technology/ai/13-ways-youre-using-ai-your-daily-life/
+
+
+
+Othergoodsruff:
+
+Encoder-decoder sequenc to sequence
+
+https://machinelearningmastery.com/develop-encoder-decoder-model-sequence-sequence-prediction-keras/
